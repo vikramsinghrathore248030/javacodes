@@ -1,0 +1,47 @@
+package com.destination.jdbcPrograms.day1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Program3 {
+	public static void main(String[] args) {
+		try {
+			Scanner sc = new Scanner(System.in);
+			// TODO Auto-generated method stub
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Driver is loaded");
+
+			String url = "jdbc:mysql://localhost:3306/test1";
+			String user = "root";
+			String pwd = "248030";
+
+			Connection con = DriverManager.getConnection(url, user, pwd);
+			if(con!=null) 
+			{
+				System.out.println("Connection established");
+				Statement stmt = con.createStatement();
+				int x = stmt.executeUpdate("create table student_dtl(id int, name varchar(60))");
+				if(x>=0) 
+				{
+					System.out.println("table created");
+				}
+				else 
+				{
+					System.out.println("table creation failed");
+				}
+				stmt.close();
+				con.close();
+			}
+			else {
+				System.out.println("Connection failed");
+			}
+			
+		}
+		catch (Exception e) {
+			System.out.println("Exception caught");
+			e.printStackTrace();
+		}
+	}
+}

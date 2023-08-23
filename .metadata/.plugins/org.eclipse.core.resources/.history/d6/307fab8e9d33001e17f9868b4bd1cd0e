@@ -1,0 +1,17 @@
+import java.util.Iterator;
+import java.util.Scanner;
+class Pat2
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0;
+       	for (int i =1; i <n; i++) 
+        {
+       		n=n%10;
+       		sum = n^3+sum;
+       		System.out.println(sum);
+        }
+    }
+}

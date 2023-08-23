@@ -1,0 +1,19 @@
+import java.util.Iterator;
+import java.util.Scanner;
+class Pat2
+{
+    public static void main(String []args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum;
+        int digit;
+        while (n>0) 
+        {
+            digit = n % 10;
+            sum = (int) (sum+Math.pow(digit,3));
+            n = n/10;
+        }
+       	System.out.println(sum);
+    }
+}

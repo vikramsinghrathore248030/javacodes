@@ -1,0 +1,50 @@
+package com.destination.jdbcPrograms.day1;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class Program4 {
+	public static void main(String[] args) {
+		try {
+			int z;
+			Scanner sc = new Scanner(System.in);
+			// TODO Auto-generated method stub
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("Driver is loaded");
+
+			String url = "jdbc:mysql://localhost:3306/test1";
+			String user = "root";
+			String pwd = "248030";
+
+			Connection con = DriverManager.getConnection(url, user, pwd);
+			while(z>=5)
+			{
+				z = str;
+				String str=("insert into student_dtl values(?,?)");
+				PreparedStatement pst=con.prepareStatement(str);
+				System.out.println("enter the id");
+				pst.setInt(1, sc.nextInt());
+				System.out.println("enter the name");
+				pst.setString(2, sc.next());
+				int x=pst.executeUpdate();
+			//}
+			if(x>0) 
+			{
+				System.out.println("data added");
+			}
+			else 
+			{
+				System.out.println("data addition failed");
+			}
+			pst.close();
+			con.close();
+		}
+		}
+		
+		catch (Exception e) {
+		System.out.println("Exception caught");
+	}	
+	}
+}
